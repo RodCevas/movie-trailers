@@ -1,0 +1,10 @@
+@use './variables' as *;
+
+//SET TEXT COLOR DEPENDING ON BACKGROUND
+@function set-text-color($bg-color) {
+  @if (lightness($bg-color) > 40%) {
+    @return map-get($clr, dark);
+  } @else {
+    @return map-get($clr, light);
+  }
+}

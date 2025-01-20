@@ -1,0 +1,29 @@
+@use '../01-utilities/variables' as *;
+@use '../01-utilities/functions' as *;
+@use '../01-utilities/mixins' as *;
+
+.btn-light {
+  padding: 10px 20px;
+  background-color: map-get($clr, light);
+  color: set-text-color(map-get($clr, light));
+  border-radius: 15px;
+  cursor: pointer;
+  /* @include transition-ease(0.3s); */
+  &:hover {
+    background-color: map-get($clr-secondary-shades, '100');
+    color: set-text-color(map-get($clr, light));
+  }
+}
+
+.btn-dark {
+  padding: 10px 20px;
+  background-color: map-get($clr, dark);
+  color: set-text-color(map-get($clr, dark));
+  border-radius: 15px;
+  cursor: pointer;
+  /* @include transition-ease(0.3s); */
+  &:hover {
+    background-color: map-get($clr-secondary-shades, '900');
+    color: set-text-color(map-get($clr, dark));
+  }
+}

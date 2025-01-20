@@ -1,0 +1,39 @@
+@use '../01-utilities/variables' as *;
+@use '../01-utilities/mixins' as *;
+
+body {
+  font-family: $ff-body;
+  font-size: $fs-base;
+  font-weight: map-get($fw, '400');
+  line-height: $lh-base;
+}
+
+@each $key, $val in $fs-display {
+  .#{$key} {font-size: $val};  
+}
+
+@each $key, $val in $fs-headings {
+  #{$key} {font-size: $val};  
+}
+
+@each $key, $val in $fw {
+  .fw-#{$key} {font-weight: $val};  
+}
+
+@include mq(small) {
+  body {
+    font-size: $fs-sm;
+  }
+
+  .display-1 {font-size: $fs-sm * 6} 
+  .display-2 {font-size: $fs-sm * 5.5} 
+  .display-3 {font-size: $fs-sm * 4.5} 
+  .display-4 {font-size: $fs-sm * 3.5} 
+
+  h1 {font-size: $fs-sm * 2.5} 
+  h2 {font-size: $fs-sm * 2}
+  h3 {font-size: $fs-sm * 1.75}
+  h4 {font-size: $fs-sm * 1.5} 
+  h5 {font-size: $fs-sm * 1.25} 
+  h6 {font-size: $fs-sm}
+}

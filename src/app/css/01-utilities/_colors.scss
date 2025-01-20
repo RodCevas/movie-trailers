@@ -1,0 +1,53 @@
+@use './variables' as *;
+@use './functions' as *;
+
+@each $key, $val in $clr {
+  .bg-#{"" + $key} {
+    background-color: $val;
+    color: set-text-color($val);
+  }
+  .text-#{"" + $key} {color: $val;}
+}
+
+.bg-primary {
+  background-color: var(--clr-primary);  
+}
+.bg-secondary {
+  background-color: var(--clr-secondary);
+}
+.bg-success {
+  background-color: var(--clr-success);
+  color: map-get($clr, white);
+}
+.bg-info {
+  background-color: var(--clr-info);
+  color: map-get($clr, white);
+}
+.bg-warning {
+  background-color: var(--clr-warning);
+  color: map-get($clr, black);
+}
+.bg-danger {
+  background-color: var(--clr-danger);
+  color: map-get($clr, white);
+}
+
+.text-primary {
+  color: var(--clr-primary);
+}
+.text-secondary {
+  color: var(--clr-secondary);
+}
+.text-success {
+  color: var(--clr-success);
+}
+.text-info {
+  color: var(--clr-info);
+}
+.text-warning {
+  color: var(--clr-warning);
+}
+.text-danger {
+  color: var(--clr-danger);
+}
+

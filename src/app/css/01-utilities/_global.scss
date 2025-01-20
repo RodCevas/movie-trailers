@@ -1,0 +1,72 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+@each $key, $val in $margin-padding {
+  .m-#{$key} {margin: $val;}
+  .mx-#{$key} {margin-left: $val; margin-right: $val;}
+  .my-#{$key} {margin-top: $val; margin-bottom: $val;}
+  .mt-#{$key} {margin-top: $val;}
+  .mb-#{$key} {margin-bottom: $val;}
+  .ml-#{$key} {margin-left: $val;}
+  .p-#{$key} {padding: $val;}
+  .px-#{$key} {padding-left: $val; padding-right: $val;}
+  .py-#{$key} {padding-top: $val; padding-bottom: $val;}
+  .pt-#{$key} {padding-top: $val;}
+  .pb-#{$key} {padding-bottom: $val;}
+  .pl-#{$key} {padding-left: $val;}
+  .pr-#{$key} {padding-right: $val;}
+}
+
+@include mq(small) {
+  @each $key, $val in $margin-padding {
+    .m-sm-#{$key} {margin: $val;}
+    .mx-sm-#{$key} {margin-left: $val; margin-right: $val;}
+    .my-sm-#{$key} {margin-top: $val; margin-bottom: $val;}
+    .mt-sm-#{$key} {margin-top: $val;}
+    .mb-sm-#{$key} {margin-bottom: $val;}
+    .ml-sm-#{$key} {margin-left: $val;}
+    .p-sm-#{$key} {padding: $val;}
+    .px-sm-#{$key} {padding-left: $val; padding-right: $val;}
+    .py-sm-#{$key} {padding-top: $val; padding-bottom: $val;}
+    .pt-sm-#{$key} {padding-top: $val;}
+    .pb-sm-#{$key} {padding-bottom: $val;}
+    .pl-sm-#{$key} {padding-left: $val;}
+    .pr-sm-#{$key} {padding-right: $val;}
+  }
+}
+
+@include mq(medium) {
+  @each $key, $val in $margin-padding {
+    .m-md-#{$key} {margin: $val;}
+    .mx-md-#{$key} {margin-left: $val; margin-right: $val;}
+    .my-md-#{$key} {margin-top: $val; margin-bottom: $val;}
+    .mt-md-#{$key} {margin-top: $val;}
+    .mb-md-#{$key} {margin-bottom: $val;}
+    .ml-md-#{$key} {margin-left: $val;}
+    .p-md-#{$key} {padding: $val;}
+    .px-md-#{$key} {padding-left: $val; padding-right: $val;}
+    .py-md-#{$key} {padding-top: $val; padding-bottom: $val;}
+    .pt-md-#{$key} {padding-top: $val;}
+    .pb-md-#{$key} {padding-bottom: $val;}
+    .pl-md-#{$key} {padding-left: $val;}
+    .pr-md-#{$key} {padding-right: $val;}
+  }
+}
+
+@include mq(large) {
+  @each $key, $val in $margin-padding {
+    .m-lg-#{$key} {margin: $val;}
+    .mx-lg-#{$key} {margin-left: $val; margin-right: $val;}
+    .my-lg-#{$key} {margin-top: $val; margin-bottom: $val;}
+    .mt-lg-#{$key} {margin-top: $val;}
+    .mb-lg-#{$key} {margin-bottom: $val;}
+    .ml-lg-#{$key} {margin-left: $val;}
+    .p-lg-#{$key} {padding: $val;}
+    .px-lg-#{$key} {padding-left: $val; padding-right: $val;}
+    .py-lg-#{$key} {padding-top: $val; padding-bottom: $val;}
+    .pt-lg-#{$key} {padding-top: $val;}
+    .pb-lg-#{$key} {padding-bottom: $val;}
+    .pl-lg-#{$key} {padding-left: $val;}
+    .pr-lg-#{$key} {padding-right: $val;}
+  }
+}
