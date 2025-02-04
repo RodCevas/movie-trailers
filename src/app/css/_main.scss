@@ -2,7 +2,7 @@
 @forward './01-utilities/colors';
 @forward './01-utilities/global';
 
-@forward './02-vendors/bootstrap';
+
 
 @forward './03-base/reset';
 @forward './03-base/typography';
@@ -10,8 +10,6 @@
 
 @forward './04-layout/navigation';
 @forward './04-layout/grid';
-@forward './04-layout/header';
-@forward './04-layout/footer';
 @forward './04-layout/sidebar';
 @forward './04-layout/forms';
 
@@ -22,7 +20,4 @@
 @forward './05-components/media';
 @forward './05-components/thumbnails';
 
-@forward './06-pages/home';
-
 @forward './07-themes/theme';
-@forward './07-themes/admin';
