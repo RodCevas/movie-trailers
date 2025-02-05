@@ -7,4 +7,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './header.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderComponent { }
+export class HeaderComponent {
+
+  menuOpen = false;
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+}
