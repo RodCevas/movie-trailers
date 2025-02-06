@@ -1,13 +1,15 @@
+@use "../../../css/01-utilities/variables" as *;
+
 .card {
-  background-color: #fff;
+  background-color: map-get($clr, "dark");
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(201, 201, 201, 0.1);  
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
   width: 200px;
   transition: transform 0.3s ease-in-out;
 }
 
 .card:hover {
-  transform: scale(1.05); /* Slightly enlarge card on hover */
+  transform: scale(1.05);
 }
 
 .card img {
@@ -21,14 +23,7 @@
   padding: 15px;
 }
 
-.card-title {
-  font-size: 1.2rem;
+.card-title {  
   margin-bottom: 10px;
-  color: #333;
+  color: map-get($clr, "light");
 }
-
-.card-description {
-  font-size: 0.9rem;
-  color: #666;
-}
-
