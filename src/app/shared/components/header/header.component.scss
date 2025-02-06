@@ -3,8 +3,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
-  background-color: #222; 
-  
+  background-color: #222;
+
   .nav-links {
     list-style: none;
     display: flex;
@@ -27,7 +27,7 @@
     display: none;
     background: none;
     border: none;
-    font-size: 24px;  
+    font-size: 24px;
     cursor: pointer;
     svg path {
       fill: #fff;
@@ -47,9 +47,9 @@
       padding: 10px 0;
       &.active {
         display: flex;
-      }    
+      }
     }
-  
+
     .menu-toggle {
       display: block;
     }
