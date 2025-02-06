@@ -1,9 +1,11 @@
+@use '../../../css/01-utilities/variables' as *;
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
-  background-color: #222;
+  background-color: map-get($clr, 'dark');
 
   .nav-links {
     list-style: none;
@@ -13,11 +15,11 @@
       display: inline;
       a {
         text-decoration: none;
-        color: white;
+        color: map-get($clr, 'white');
         transition: 0.3s;
         cursor: pointer;
         &:hover {
-          color: #f39c12;
+          color: map-get($clr-dark-theme, 'warning');
         }
       }
     }
@@ -27,7 +29,7 @@
     display: none;
     background: none;
     border: none;
-    font-size: 24px;
+    font-size: $fs-lg;
     cursor: pointer;
     svg path {
       fill: #fff;
@@ -40,7 +42,7 @@
       flex-direction: column;
       width: 100%;
       text-align: center;
-      background-color: #222;
+      background-color: map-get($clr, 'dark');
       position: absolute;
       top: 55px;
       left: 0;
