@@ -5,25 +5,27 @@
   border-radius: 8px;
   box-shadow: 0 4px 6px map-get($clr-gray, "800");
   width: 200px;
+  height: 360px;
   transition: transform 0.3s ease-in-out;
-}
-
-.card:hover {
-  transform: scale(1.05);
-}
-
-.card img {
-  width: 100%;
-  height: auto;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
-
-.card-content {
-  padding: 15px;
-}
-
-.card-title {
-  margin-bottom: 10px;
-  color: map-get($clr-gray, "400");
+  &:hover {
+    transform: scale(1.05);
+  }
+  img {
+    object-fit: contain;
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  .card-content {
+    padding: 15px;
+    .card-title {
+      margin-bottom: 10px;
+      color: map-get($clr-gray, "400");
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;  
+      overflow: hidden;
+    }
+  }
 }

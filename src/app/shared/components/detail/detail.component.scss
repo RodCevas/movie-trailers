@@ -1,0 +1,31 @@
+@use "../../../css/01-utilities/variables" as *;
+
+.video-detail {
+  line-height: $lh-lg;
+  img {
+    margin-inline: auto;
+  }  
+  h3 {
+    border-radius: 4px;
+    background-color: map-get($clr, "dark");
+  }
+}
+
+.video-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%;
+  .responsive-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 640px;
+    max-height: 480px;
+    margin: auto;
+  }
+}

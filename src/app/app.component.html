@@ -1,2 +1,13 @@
-<header><app-header /></header>
-<main class="p-5"><router-outlet /><app-home /></main>
+<header>
+  <div class="flex-container">
+    <app-header />
+  </div>
+</header>
+<main class="mx-2">
+  <div class="flex-container pt-5">
+    <router-outlet />
+    <app-detail />
+    <app-home />
+
+  </div>
+</main>
