@@ -1,17 +1,7 @@
 <div class="card-grid">
-
-  <app-card />
-  <app-card />
-  <app-card />
-  <app-card />
-  <app-card />
-  <app-card />
-  <app-card />
-  <app-card />
-  <app-card />
-  <app-card />
-  <app-card />
-  <app-card />
-  <app-card />
-
+  @for (movie of movies(); track $index) {
+    <app-card [movie]="movie" [error]="error" />
+  } @empty {
+  <p>There are no items.</p>
+  }
 </div>
