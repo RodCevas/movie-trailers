@@ -14,8 +14,8 @@ export class DataService {
   private http = inject(HttpClient);
 
   // GET all items
-  getAll(): Observable<Movie[]> {
-    return this.http.get<Movie[]>(this.apiUrl + '?language=en');
+  getAll(type: string = '', param: string = ''): Observable<Movie[]> {
+    return this.http.get<Movie[]>(this.apiUrl + type + '?language=en' + param);
   }
 
   // GET item by ID

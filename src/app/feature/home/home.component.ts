@@ -18,7 +18,8 @@ import { Movie } from '../../core/models/models';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent implements OnInit {
-  movies = signal<Movie[]>([]);
+  moviesTrending = signal<Movie[]>([]);
+  moviesLatest = signal<Movie[]>([]);
   error: string = '';
 
   constructor(private dataService: DataService) {}
@@ -28,8 +29,12 @@ export class HomeComponent implements OnInit {
   }
 
   getMovies() {
-    this.dataService.getAll().subscribe({
-      next: (data) => (this.movies.set(Object.values(data))),
+    this.dataService.getAll('/latest', '&limit=9').subscribe({
+      next: (data) => this.moviesLatest.set(Object.values(data)),
+      error: (err) => (this.error = err),
+    });
+    this.dataService.getAll('/trending', '&limit=9').subscribe({
+      next: (data) => this.moviesTrending.set(Object.values(data)),
       error: (err) => (this.error = err),
     });
   }

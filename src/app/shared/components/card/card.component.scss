@@ -4,7 +4,8 @@
   background-color: map-get($clr, "dark");
   border-radius: 8px;
   box-shadow: 0 4px 6px map-get($clr-gray, "800");
-  width: 360px;
+  width: 350px;
+  height: 285px;
   transition: transform 0.3s ease-in-out;
   cursor: pointer;
   &:hover {
@@ -23,7 +24,7 @@
       margin-bottom: 10px;
       color: map-get($clr-gray, "400");
       display: -webkit-box;
-      -webkit-line-clamp: 1;
+      -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }

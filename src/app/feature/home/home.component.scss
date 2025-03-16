@@ -4,3 +4,15 @@
   gap: 50px;
   justify-content: center;
 }
+
+.title {
+  display: flex;
+  align-items: center;
+  
+  h3 {
+    margin-right: auto;
+  }
+  h4 {
+    margin-left: auto;
+  }
+}

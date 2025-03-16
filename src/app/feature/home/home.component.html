@@ -1,6 +1,21 @@
-<div class="card-grid">
-  @for (movie of movies(); track $index) {
-    <app-card [movie]="movie" [error]="error" />
+<div class="title my-5 mx-2">
+  <h3>Latest Trailers</h3>
+  <h4><a class="text-white" href="">View all >></a></h4>
+</div>
+<div class="card-grid pb-5">
+  @for (movie of moviesLatest(); track $index) {
+  <app-card [movie]="movie" [error]="error" />
+  } @empty {
+  <p>There are no items.</p>
+  }
+</div>
+<div class="title my-5 mx-2">
+  <h3>Trending Trailers</h3>
+  <h4><a class="text-white" href="">View all >></a></h4>
+</div>
+<div class="card-grid pb-5">
+  @for (movie of moviesTrending(); track $index) {
+  <app-card [movie]="movie" [error]="error" />
   } @empty {
   <p>There are no items.</p>
   }
