@@ -9,10 +9,11 @@ import { CardComponent } from '../../shared/components/card/card.component';
 import { CommonModule } from '@angular/common';
 import { DataService } from '../../core/services/data.service';
 import { Movie } from '../../core/models/models';
+import { BannerTopComponent } from "../../shared/components/banner-top/banner-top.component";
 
 @Component({
   selector: 'app-home',
-  imports: [CardComponent, CommonModule],
+  imports: [CardComponent, CommonModule, BannerTopComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
