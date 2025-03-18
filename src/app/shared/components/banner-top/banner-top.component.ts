@@ -1,26 +1,50 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  Input,
+} from '@angular/core';
 import { Movie } from '../../../core/models/models';
-import { SafeUrlPipe } from '../../pipes/SafeUrl.pipe';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-banner-top',
-  imports: [SafeUrlPipe],
+  imports: [],
   templateUrl: './banner-top.component.html',
   styleUrl: './banner-top.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BannerTopComponent {
-  private _movieBannerUrl: string = '';
+  private _movieBanner: Movie = {
+    id: '',
+    youtube_video_id: '',
+    youtube_channel_id: '',
+    youtube_thumbnail: '',
+    title: '',
+    url: '',
+    thumbnail: '',
+    language: '',
+    categories: [],
+    genres: [],
+    published: '',
+    views: 0,
+  };
+
+  safeUrl: SafeResourceUrl = '';
+  private sanitizer = inject(DomSanitizer);
 
   @Input() set movieBanner(value: Movie) {
-    this._movieBannerUrl = value.youtube_video_id;
+    this._movieBanner = value;
+    this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+      'https://www.youtube.com/embed/' +
+        this._movieBanner.youtube_video_id +
+        '?controls=0&autoplay=1&mute=1&playlist=' +
+        this._movieBanner.youtube_video_id +
+        '&loop=1&disablekb=1&iv_load_policy=3&rel=0'
+    );
   }
 
-  get movieBannerUrl(): string {
-    return (
-      'https://www.youtube.com/embed/' +
-      this._movieBannerUrl +
-      '?controls=0&autoplay=1&mute=1&playsinline=1&loop=1'
-    );
+  get movieBannerTitle(): string {
+    return this._movieBanner.title;
   }
 }

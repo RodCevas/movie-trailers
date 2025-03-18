@@ -1,8 +1,8 @@
-<div class="video-container">
-  <iframe src="{{ movieBannerUrl | safeUrlPipe }}"></iframe>
-</div>
-
-<div id="text">
-  <h1>Use a youtube video as a full screen background with CSS</h1>
-  {{ movieBannerUrl }}
+<div class="flex-row">
+  <div class="col-12 video-container">
+    <iframe class="responsive-iframe" [src]="safeUrl" frameborder="0"></iframe>
+    <div class="content">
+      <h5>{{ movieBannerTitle }}</h5>
+    </div>
+  </div>
 </div>
