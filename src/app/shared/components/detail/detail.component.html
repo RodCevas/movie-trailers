@@ -1,25 +1,24 @@
-<div class="flex-row video-detail my-lg-5">
+<div class="flex-row video-detail mb-lg-5">
+  <div class="flex-col-12 mb-3">
+    <a onclick="history.back()" class="go-back-btn">Go Back</a>
+  </div>
   <div class="flex-col-lg-4 p-2">
-    <img src="https://placehold.co/200x300" alt="movie poster" />
+    <img src="{{ queryParams.youtube_thumbnail }}" alt="movie poster" />
   </div>
   <div class="flex-col-lg-8 p-2">
-    <h3 class="text-light mb-3 py-2 text-center">Title</h3>
-    <p>Published:</p>
-    <p>Language:</p>
+    <h3 class="text-light mb-3 py-2 text-center">{{ queryParams.title }}</h3>
+    <p>Published: {{ queryParams.published | date }}</p>
+    <p>Language: {{ queryParams.language }}</p>
     <p>Genres:</p>
-    <p>Published:</p>
-    <p>Views:</p>
+    <p>Views: {{ queryParams.views }}</p>
   </div>
 </div>
 <div class="flex-row">
   <div class="flex-col-12 p-2 video-container">
     <iframe
       class="responsive-iframe"
-      src="https://www.youtube.com/embed/EJJedP2_7_k?si=kP2IL1qnLpvAF-yJ"
-      title="YouTube video player"
+      [src]="safeUrl"
       frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerpolicy="strict-origin-when-cross-origin"
       allowfullscreen
     ></iframe>
   </div>
