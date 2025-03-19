@@ -19,9 +19,9 @@ export class DataService {
   }
 
   // GET item by ID
-  getById(id: number): Observable<any> {
+  getById(id: number, type: string = ''): Observable<any> {
     return this.http
-      .get<any>(`${this.apiUrl}/${id}`)
+      .get<any>(`${this.apiUrl}${type}?language=en&tmdb_id=${id}`)
       .pipe(catchError(this.handleError));
   }
 
