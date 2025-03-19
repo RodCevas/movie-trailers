@@ -12,3 +12,10 @@ export interface Movie {
   published: string;
   views: number;
 }
+
+export interface Metadata {
+  limit: number;
+  page: number;
+  total_pages: number;
+  total_count: number;
+}

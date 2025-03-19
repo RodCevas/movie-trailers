@@ -1,0 +1,17 @@
+@use "../../../css/01-utilities/variables" as *;
+.pagination ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  li {
+    list-style-type: none;
+    .pagination-btn {
+      padding: 10px 15px;
+      &:hover {
+        cursor: pointer;
+        background-color: map-get($clr-gray, "800");
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
-@use '../01-utilities/variables' as *;
-@use '../01-utilities/mixins' as *;
+@use "../01-utilities/variables" as *;
+@use "../01-utilities/mixins" as *;
 @use "sass:math";
 
 //CONTAINERS
@@ -260,4 +260,11 @@
   -webkit-box-align: end;
   -ms-flex-align: end;
   align-items: end;
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
 }

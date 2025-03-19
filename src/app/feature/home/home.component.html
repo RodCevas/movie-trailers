@@ -4,7 +4,7 @@
 </div>
 <div class="card-grid pb-5">
   @for (movie of moviesLatest(); track $index) {
-  <app-card [movie]="movie" [error]="error" />
+  <app-card [movie]="movie" />
   } @empty {
   <p>There are no items.</p>
   }
@@ -15,7 +15,7 @@
 </div>
 <div class="card-grid pb-5">
   @for (movie of moviesTrending(); track $index) {
-  <app-card [movie]="movie" [error]="error" />
+  <app-card [movie]="movie" />
   } @empty {
   <p>There are no items.</p>
   }

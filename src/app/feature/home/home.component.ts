@@ -20,7 +20,7 @@ import { Movie } from '../../core/models/models';
 export class HomeComponent implements OnInit {
   moviesTrending = signal<Movie[]>([]);
   moviesLatest = signal<Movie[]>([]);
-  error: string = '';
+  error = signal<string>('');
 
   constructor(private dataService: DataService) {}
 
@@ -38,29 +38,4 @@ export class HomeComponent implements OnInit {
       error: (err) => (this.error = err),
     });
   }
-
-  /*   cards = [
-    {
-      title: 'Card 1',
-      subtitle: 'Subtitle for Card 1',
-      description: 'This is the detailed description for Card 1.',
-      showDescription: false,
-    },
-    {
-      title: 'Card 2',
-      subtitle: 'Subtitle for Card 2',
-      description: 'This is the detailed description for Card 2.',
-      showDescription: false,
-    },
-    {
-      title: 'Card 3',
-      subtitle: 'Subtitle for Card 3',
-      description: 'This is the detailed description for Card 3.',
-      showDescription: false,
-    },
-  ];
-
-  toggleDescription(card: any): void {
-    card.showDescription = !card.showDescription;
-  } */
 }

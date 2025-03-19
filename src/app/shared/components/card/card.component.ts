@@ -17,5 +17,4 @@ import { Movie } from '../../../core/models/models';
 })
 export class CardComponent {
   @Input() movie!: Movie;
-  @Input() error!: string;
 }
