@@ -1,28 +1,45 @@
+@use "../../../css/01-utilities/mixins" as *;
+
 .video-container {
   position: relative;
   top: 0;
   left: 0;
   width: 100vw;
-  height: 50vh;
-  overflow: hidden;
-  z-index: -1;
-}
-.responsive-iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100vw;
-  height: 56.25vw; /* 16:9 aspect ratio */
-  min-height: 100vh;
-  min-width: 177.78vh; /* 16:9 aspect ratio */
-  transform: translate(-50%, -50%);
+  height: 90vh;
+  overflow: hidden;  
+  .responsive-iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 56.25vw; /* 16:9 aspect ratio */
+    min-height: 100vh;
+    min-width: 177.78vh; /* 16:9 aspect ratio */
+    transform: translate(-50%, -50%);
+  }
+  .content {
+    position: absolute;
+    bottom: 0;
+    mask: linear-gradient(transparent, black, black, black);
+    backdrop-filter: blur(10px);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 50px 20px;
+    display: flex;
+    align-items: center;
+    img {
+      max-width: 200px;
+      border-radius: 8px;
+    }
+  }
 }
 
-.content {
-  position: absolute;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  color: #f1f1f1;
-  width: 100%;
-  padding: 20px;
+@include mq(small) {
+  .video-container .content {
+    display: block;    
+    padding: 20px;
+    .text {
+      display: flex;      
+    }
+  }
 }

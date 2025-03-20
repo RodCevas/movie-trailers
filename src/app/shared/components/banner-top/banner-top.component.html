@@ -2,7 +2,24 @@
   <div class="col-12 video-container">
     <iframe class="responsive-iframe" [src]="safeUrl" frameborder="0"></iframe>
     <div class="content">
-      <h5>{{ movieBannerTitle }}</h5>
+      <img src="{{ movieBanner.youtube_thumbnail }}" alt="banner top" />
+      <div class="text m-3">
+        <h5 class="mb-3">{{ movieBanner.title }}</h5>
+        <a
+          [routerLink]="['/detail', movieBanner.id]"
+          [queryParams]="{
+            id: movieBanner.id,
+            youtube_video_id: movieBanner.youtube_video_id,
+            youtube_thumbnail: movieBanner.youtube_thumbnail,
+            title: movieBanner.title,
+            language: movieBanner.language,
+            published: movieBanner.published,
+            views: movieBanner.views
+          }"
+          class="btn-opacity-secondary"
+          >More Info</a
+        >
+      </div>
     </div>
   </div>
 </div>

@@ -6,10 +6,11 @@ import {
 } from '@angular/core';
 import { Movie } from '../../../core/models/models';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-banner-top',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './banner-top.component.html',
   styleUrl: './banner-top.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -44,7 +45,7 @@ export class BannerTopComponent {
     );
   }
 
-  get movieBannerTitle(): string {
-    return this._movieBanner.title;
+  get movieBanner(): Movie {
+    return this._movieBanner;
   }
 }

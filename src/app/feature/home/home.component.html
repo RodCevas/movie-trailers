@@ -1,23 +1,25 @@
 <app-banner-top [movieBanner]="moviesLatest()[0]" />
-<div class="title my-5 mx-2">
-  <h3>Latest Trailers</h3>
-  <h4><a class="text-white" href="">View all >></a></h4>
-</div>
-<div class="card-grid pb-5">
-  @for (movie of moviesLatest(); track $index) {
-  <app-card [movie]="movie" />
-  } @empty {
-  <p>There are no items.</p>
-  }
-</div>
-<div class="title my-5 mx-2">
-  <h3>Trending Trailers</h3>
-  <h4><a class="text-white" href="">View all >></a></h4>
-</div>
-<div class="card-grid pb-5">
-  @for (movie of moviesTrending(); track $index) {
-  <app-card [movie]="movie" />
-  } @empty {
-  <p>There are no items.</p>
-  }
+<div class="flex-container py-5">
+  <div class="title my-5 mx-2">
+    <h3>Latest Trailers</h3>
+    <h4><a class="text-white" href="">View all >></a></h4>
+  </div>
+  <div class="card-grid pb-5">
+    @for (movie of moviesLatest(); track $index) {
+    <app-card [movie]="movie" />
+    } @empty {
+    <p>There are no items.</p>
+    }
+  </div>
+  <div class="title my-5 mx-2">
+    <h3>Trending Trailers</h3>
+    <h4><a class="text-white" href="">View all >></a></h4>
+  </div>
+  <div class="card-grid pb-5">
+    @for (movie of moviesTrending(); track $index) {
+    <app-card [movie]="movie" />
+    } @empty {
+    <p>There are no items.</p>
+    }
+  </div>
 </div>

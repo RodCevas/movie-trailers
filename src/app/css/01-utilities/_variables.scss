@@ -1,9 +1,9 @@
 //COLORS
 $clr: (
-  light: #f8f9fa,
-  dark: #222,
+  light: #adb5bd,
+  dark: #303030,
   white: #fff,
-  black: #000
+  black: #000,
 );
 
 $clr-light-theme: (
@@ -12,40 +12,40 @@ $clr-light-theme: (
   success: #28a745,
   info: #17a2b8,
   warning: #ffc107,
-  danger: #dc3545
+  danger: #dc3545,
 );
 
 $clr-dark-theme: (
-  primary: #00254d,
-  secondary: #3b4044,
-  success: #28a745,
-  info: #17a2b8,
-  warning: #ffc107,
-  danger: #dc3545
+  primary: #375a7f,
+  secondary: #444,
+  success: #00bc8c,
+  info: #3498db,
+  warning: #f39c12,
+  danger: #e74c3c,
 );
 
 $clr-primary-shades: (
-  "100": #e5f2ff,
-  "200": #b3d7ff,
-  "300": #80bdff,
-  "400": #4da3ff,
-  "500": #1a88ff,
-  "600": #006fe6,
-  "700": #0056b3,
-  "800": #003d80,
-  "900": #00254d
+  "100": #ebf1f6,
+  "200": #c4d4e5,
+  "300": #9cb7d4,
+  "400": #759bc3,
+  "500": #4d7eb2,
+  "600": #3c628a,
+  "700": #2b4663,
+  "800": #1a2a3b,
+  "900": #090e14,
 );
 
 $clr-secondary-shades: (
-  "100": #f1f2f3,
-  "200": #d6d9dc,
-  "300": #bbc0c4,
-  "400": #9fa6ac,
-  "500": #848d95,
-  "600": #6a737b,
-  "700": #535a60,
-  "800": #3b4044,
-  "900": #232629
+  "100": #f1f1f1,
+  "200": #d4d4d4,
+  "300": #b8b8b8,
+  "400": #9c9c9c,
+  "500": #808080,
+  "600": #636363,
+  "700": #474747,
+  "800": #2a2a2a,
+  "900": #0e0e0e,
 );
 
 $clr-gray: (
@@ -57,7 +57,7 @@ $clr-gray: (
   "600": #6c757d,
   "700": #495057,
   "800": #343a40,
-  "900": #212529
+  "900": #212529,
 );
 
 $darkMode-background-color: #121212;
@@ -66,31 +66,31 @@ $darkMode-background-color: #121212;
 $ff-body: system-ui, sans-serif;
 
 $fs-base: 1rem;
-$fs-sm: $fs-base * 0.875; 
-$fs-lg: $fs-base * 1.25; 
+$fs-sm: $fs-base * 0.875;
+$fs-lg: $fs-base * 1.25;
 
-$fs-display: (  
-  display-1: $fs-base * 6, 
-  display-2: $fs-base * 5.5, 
-  display-3: $fs-base * 4.5, 
-  display-4: $fs-base * 3.5
+$fs-display: (
+  display-1: $fs-base * 6,
+  display-2: $fs-base * 5.5,
+  display-3: $fs-base * 4.5,
+  display-4: $fs-base * 3.5,
 );
 
 $fs-headings: (
-  h1: $fs-base * 2.5, 
-  h2: $fs-base * 2, 
-  h3: $fs-base * 1.75, 
-  h4: $fs-base * 1.5, 
-  h5: $fs-base * 1.25, 
-  h6: $fs-base
+  h1: $fs-base * 2.5,
+  h2: $fs-base * 2,
+  h3: $fs-base * 1.75,
+  h4: $fs-base * 1.5,
+  h5: $fs-base * 1.25,
+  h6: $fs-base,
 );
 
 $fw: (
-  '300': 300, 
-  '400': 400, 
-  '500': 500, 
-  '700': 700, 
-  '900': 900
+  "300": 300,
+  "400": 400,
+  "500": 500,
+  "700": 700,
+  "900": 900,
 );
 
 $lh-base: 1.5;
@@ -106,23 +106,23 @@ $margin-padding: (
   2: 0.5rem,
   3: 1rem,
   4: 1.5rem,
-  5: 3rem
+  5: 3rem,
 );
 
 $breakpoints: (
   small: 576px,
   medium: 768px,
-  large: 992px
+  large: 992px,
 );
 
 :root {
   @each $key, $val in $clr-light-theme {
-    --clr-#{$key}: #{$val};    
+    --clr-#{$key}: #{$val};
   }
 
   &:has(.darkMode) {
     @each $key, $val in $clr-dark-theme {
-      --clr-#{$key}: #{$val};    
+      --clr-#{$key}: #{$val};
     }
-}
+  }
 }

@@ -6,9 +6,10 @@
   padding: 10px 20px;
   background-color: map-get($clr, light);
   color: set-text-color(map-get($clr, light));
-  border-radius: 15px;
+  border: 1px solid map-get($clr-secondary-shades, '100');
+  border-radius: 8px;
   cursor: pointer;
-  /* @include transition-ease(0.3s); */
+  @include transition-ease(0.3s);
   &:hover {
     background-color: map-get($clr-secondary-shades, '100');
     color: set-text-color(map-get($clr, light));
@@ -19,11 +20,68 @@
   padding: 10px 20px;
   background-color: map-get($clr, dark);
   color: set-text-color(map-get($clr, dark));
-  border-radius: 15px;
+  border: 1px solid map-get($clr-secondary-shades, '900');
+  border-radius: 8px;
   cursor: pointer;
-  /* @include transition-ease(0.3s); */
+  @include transition-ease(0.3s);
   &:hover {
     background-color: map-get($clr-secondary-shades, '900');
-    color: set-text-color(map-get($clr, dark));
+    color: set-text-color(map-get($clr, dark));    
+  }
+}
+
+.btn-primary {
+  padding: 10px 20px;
+  background-color: map-get($clr-dark-theme, primary);
+  color: set-text-color(map-get($clr, dark));
+  border: 1px solid map-get($clr-primary-shades, '700');
+  border-radius: 8px;
+  cursor: pointer;
+  @include transition-ease(0.3s);
+  &:hover {
+    background-color: map-get($clr-primary-shades, '700');
+    color: set-text-color(map-get($clr, dark));    
+  }
+}
+
+.btn-secondary {
+  padding: 10px 20px;
+  background-color: map-get($clr-dark-theme, secondary);
+  color: set-text-color(map-get($clr, dark));
+  border: 1px solid map-get($clr-secondary-shades, '700');
+  border-radius: 8px;
+  cursor: pointer;
+  @include transition-ease(0.3s);
+  &:hover {
+    background-color: map-get($clr-secondary-shades, '800');
+    color: set-text-color(map-get($clr, dark));    
+  }
+}
+
+.btn-opacity-secondary {
+  padding: 10px 20px;
+  background-color: rgba(109, 109, 110, 0.5);;
+  color: map-get($clr, white);
+  border: 1px solid map-get($clr-secondary-shades, '500');
+  border-radius: 8px;
+  cursor: pointer;  
+  @include transition-ease(0.3s);
+  &:hover {
+    background-color: rgba(109, 109, 110, 0.2);;
+    color: map-get($clr, white); 
+  }
+}
+
+.btn-info {
+  padding: 10px 20px;
+  background-color: map-get($clr-dark-theme, info);
+  color: set-text-color(map-get($clr, dark));
+  border: 1px solid map-get($clr-dark-theme, info);
+  border-radius: 8px;
+  cursor: pointer;
+  @include transition-ease(0.3s);
+  &:hover {
+    background-color: map-get($clr-dark-theme, info);
+    color: set-text-color(map-get($clr, dark));    
   }
 }
