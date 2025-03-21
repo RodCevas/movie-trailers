@@ -1,0 +1,5 @@
+@use "../../../css/01-utilities/variables" as *;
+
+.footer span {
+  font-size: $fs-sm;
+}
