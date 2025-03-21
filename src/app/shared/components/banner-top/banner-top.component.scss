@@ -16,6 +16,10 @@
     min-height: 100vh;
     min-width: 177.78vh; /* 16:9 aspect ratio */
     transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+  .screen {
+    z-index: 10;
   }
   .content {
     position: absolute;
@@ -27,6 +31,7 @@
     padding: 50px 20px;
     display: flex;
     align-items: center;
+    
     img {
       max-width: 200px;
       border-radius: 8px;

@@ -1,6 +1,8 @@
 <div class="flex-row">
   <div class="col-12 video-container">
-    <iframe class="responsive-iframe" [src]="safeUrl" frameborder="0"></iframe>
+    <div class="screen">
+      <iframe class="responsive-iframe" [src]="safeUrl" frameborder="0"></iframe>
+    </div>
     <div class="content">
       <img src="{{ movieBanner.youtube_thumbnail }}" alt="banner top" />
       <div class="text m-3">
