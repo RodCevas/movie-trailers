@@ -54,15 +54,14 @@ export class LatestTrailersComponent implements OnInit {
         next: (data) => {
           this.moviesLatest.set(Object.values(data));
           /*           let metadata = Object.values(data).length - 1;
-          this.totalMovies.set(Object.values(data)[metadata].total_count);   */
-          console.log(this.moviesLatest());
+          this.totalMovies.set(Object.values(data)[metadata].total_count);   */          
         },
         error: (err) => (this.error = err),
       });
   }
 
   changePage($event: number) {
-    this.currentPage.set($event);
+    this.currentPage.set($event); 
     window.scrollTo(0, 0);
   }
 

@@ -22,7 +22,7 @@
     padding: 15px;
     .card-title {
       margin-bottom: 10px;
-      color: map-get($clr-gray, "400");
+      color: map-get($clr, 'light');
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
