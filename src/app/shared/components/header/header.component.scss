@@ -21,7 +21,6 @@
         &:hover, &.active {
           color: map-get($clr-dark-theme, 'warning');
         }
-
       }
     }
   }
@@ -33,7 +32,41 @@
     font-size: $fs-lg;
     cursor: pointer;
     svg path {
-      fill: #fff;
+      fill: map-get($clr, 'light');
+    }
+  }
+
+  .dropdown {
+    .dropdown-btn {
+      background: none;
+      border: none;
+      color: map-get($clr, 'light');
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .dropdown-menu {
+      position: absolute;
+      background: map-get($clr, 'dark');
+      color: map-get($clr, 'light');
+      list-style: none;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      
+      li {
+        padding: 8px 12px;
+        a {
+          display: block;
+          text-decoration: none;
+          color: map-get($clr, 'light');
+          transition: 0.3s;
+          cursor: pointer;
+          &:hover, &.active {
+            color: map-get($clr-dark-theme, 'warning');
+          }
+        }
+      }
     }
   }
 
