@@ -15,12 +15,13 @@
       display: inline;
       a {
         text-decoration: none;
-        color: map-get($clr, 'white');
+        color: map-get($clr, 'light');
         transition: 0.3s;
         cursor: pointer;
-        &:hover {
+        &:hover, &.active {
           color: map-get($clr-dark-theme, 'warning');
         }
+
       }
     }
   }
