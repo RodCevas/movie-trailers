@@ -5,8 +5,8 @@
         role="button"
         [ngClass]="{
           'pagination-btn': true,
-          'bg-black': currentPage !== page,
-          'bg-dark': currentPage === page
+          'bg-black': currentPage != page,
+          'bg-dark': currentPage == page
         }"
         (click)="changePage.emit(page)"
         >{{ page }}</a

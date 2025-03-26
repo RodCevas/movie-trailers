@@ -1,14 +1,11 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  input,
-  Input,
-  signal,
+  Input
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { DetailComponent } from '../detail/detail.component';
 import { Movie } from '../../../core/models/models';
-import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-card',

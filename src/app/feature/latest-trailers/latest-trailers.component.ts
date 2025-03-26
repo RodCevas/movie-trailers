@@ -11,6 +11,7 @@ import { Movie } from '../../core/models/models';
 import { CardComponent } from '../../shared/components/card/card.component';
 import { PaginationComponent } from '../../shared/components/pagination/pagination.component';
 import { __metadata } from 'tslib';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-latest-trailers',
@@ -35,7 +36,11 @@ export class LatestTrailersComponent implements OnInit {
     );
   });
 
-  constructor(private dataService: DataService) {
+  constructor(
+    private dataService: DataService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
     effect(() => {
       if (this.currentPage()) {
         this.getMovies();
@@ -44,6 +49,7 @@ export class LatestTrailersComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.setCurrentPage();
     this.getMovies();
   }
 
@@ -55,20 +61,33 @@ export class LatestTrailersComponent implements OnInit {
           this.moviesLatest.set(Object.values(data));
           /*           let metadata = Object.values(data).length - 1;
           this.totalMovies.set(Object.values(data)[metadata].total_count);   */
-          console.log(this.moviesLatest());
         },
         error: (err) => (this.error = err),
       });
-  }
-
-  changePage($event: number) {
-    this.currentPage.set($event);
-    window.scrollTo(0, 0);
   }
 
   sliceMovies(currentPage: number, limitPages: number, movies: Movie[]) {
     let trimStart = (currentPage - 1) * limitPages;
     let trimEnd = trimStart + limitPages;
     return movies.slice(trimStart, trimEnd);
+  }
+
+  changePage($event: number) {
+    this.setCurrentPage();
+    this.setPaginationParam($event);    
+    window.scrollTo(0, 0);
+  }
+
+  setPaginationParam(page: number) {
+    this.router.navigate(['/home'], {
+      queryParams: { page: page },
+      queryParamsHandling: 'merge',
+    });
+  }
+
+  setCurrentPage() {
+    this.route.queryParams.subscribe((params) => {    
+      this.currentPage.set(Number(params['page'] ? +params['page'] : 1));
+    });
   }
 }
