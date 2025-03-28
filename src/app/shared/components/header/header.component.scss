@@ -1,4 +1,5 @@
 @use "../../../css/01-utilities/variables" as *;
+@use "../../../css/01-utilities/variables" as *;
 
 .navbar {
   display: flex;
@@ -9,6 +10,7 @@
   .logo-img {
     max-height: 60px;
   }
+  padding: 15px 20px;
 
   .nav-links {
     list-style: none;
@@ -19,8 +21,12 @@
       a {
         text-decoration: none;
         color: map-get($clr, "light");
+        color: map-get($clr, "light");
         transition: 0.3s;
         cursor: pointer;
+        &:hover,
+        &.active {
+          color: map-get($clr-dark-theme, "warning");
         &:hover {
           color: map-get($clr-dark-theme, "warning");
         }
@@ -35,6 +41,46 @@
     font-size: $fs-lg;
     cursor: pointer;
     svg path {
+      fill: map-get($clr, "light");
+    }
+  }
+
+  .dropdown {
+    .dropdown-btn {
+      background: none;
+      border: none;
+      color: map-get($clr, "light");
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .dropdown-btn:hover,
+    .dropdown-btn.active {
+      color: map-get($clr-dark-theme, "warning");
+    }
+    .dropdown-menu {
+      position: absolute;
+      background: map-get($clr, "dark");
+      color: map-get($clr, "light");
+      list-style: none;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+      li {
+        padding: 8px 12px;
+        a {
+          display: block;
+          text-decoration: none;
+          color: map-get($clr, "light");
+          transition: 0.3s;
+          cursor: pointer;
+          &:hover,
+          &.active {
+            color: map-get($clr-dark-theme, "warning");
+          }
+        }
+      }
       fill: map-get($clr, "light");
     }
   }
@@ -77,6 +123,7 @@
       width: 100%;
       text-align: center;
       background-color: map-get($clr-dark-theme, "secondary");
+      background-color: map-get($clr, "dark");
       position: absolute;
       top: 55px;
       left: 0;

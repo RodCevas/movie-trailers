@@ -61,9 +61,15 @@ export class LatestTrailersComponent implements OnInit {
           this.moviesLatest.set(Object.values(data));
           /*           let metadata = Object.values(data).length - 1;
           this.totalMovies.set(Object.values(data)[metadata].total_count);   */
+          console.log(this.moviesLatest());
         },
         error: (err) => (this.error = err),
       });
+  }
+
+  changePage($event: number) {
+    this.currentPage.set($event);
+    window.scrollTo(0, 0);
   }
 
   sliceMovies(currentPage: number, limitPages: number, movies: Movie[]) {
@@ -74,7 +80,7 @@ export class LatestTrailersComponent implements OnInit {
 
   changePage($event: number) {
     this.setCurrentPage();
-    this.setPaginationParam($event);    
+    this.setPaginationParam($event);
     window.scrollTo(0, 0);
   }
 
@@ -86,7 +92,7 @@ export class LatestTrailersComponent implements OnInit {
   }
 
   setCurrentPage() {
-    this.route.queryParams.subscribe((params) => {    
+    this.route.queryParams.subscribe((params) => {
       this.currentPage.set(Number(params['page'] ? +params['page'] : 1));
     });
   }
