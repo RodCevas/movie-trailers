@@ -1,11 +1,10 @@
-@use '../../../css/01-utilities/variables' as *;
+@use "../../../css/01-utilities/variables" as *;
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
-  
 
   .nav-links {
     list-style: none;
@@ -15,11 +14,11 @@
       display: inline;
       a {
         text-decoration: none;
-        color: map-get($clr, 'white');
+        color: map-get($clr, "light");
         transition: 0.3s;
         cursor: pointer;
         &:hover {
-          color: map-get($clr-dark-theme, 'warning');
+          color: map-get($clr-dark-theme, "warning");
         }
       }
     }
@@ -32,7 +31,38 @@
     font-size: $fs-lg;
     cursor: pointer;
     svg path {
-      fill: #fff;
+      fill: map-get($clr, "light");
+    }
+  }
+
+  .search-container {
+    display: flex;
+    position: relative;
+    align-items: center;
+    background-color: map-get($clr, "dark");
+    padding: 2px;
+    border-radius: 8px;
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: 1rem;
+    .search-input {
+      flex-grow: 1;
+      padding: 8px;
+      border: none;
+      background: none;
+      color: map-get($clr, "light");
+      outline: none;
+    }
+    .clear-button {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      color: map-get($clr, "light");
     }
   }
 
@@ -42,7 +72,7 @@
       flex-direction: column;
       width: 100%;
       text-align: center;
-      background-color: map-get($clr, 'dark');
+      background-color: map-get($clr-dark-theme, "secondary");
       position: absolute;
       top: 55px;
       left: 0;
@@ -56,4 +86,8 @@
       display: block;
     }
   }
+}
+
+.search-result {
+  border-top: 1px solid map-get($clr, "dark");
 }

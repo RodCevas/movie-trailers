@@ -1,6 +1,18 @@
 <div class="flex-container">
   <nav class="navbar">
     <div class="logo">Brand</div>
+    <div class="search-container">
+      <input
+        type="text"
+        [(ngModel)]="inputText"
+        (input)="onSearch($event)"
+        placeholder="Search..."
+        class="search-input"
+      />
+      @if(inputText != '') {
+      <button (click)="clearInput()" class="clear-button">×</button>
+      }
+    </div>
     <button class="menu-toggle" (click)="toggleMenu()">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -20,4 +32,13 @@
       <li><a routerLink="/contact">Contact</a></li>
     </ul>
   </nav>
+  @if(inputText != '') {
+  <div class="search-result">
+    <div class="card-grid mt-5 pb-5">
+      @for (movie of filteredMovies().slice(0, 3); track $index) {
+      <app-card [movie]="movie" />
+      } @empty { There are no movies with this name: "{{ inputText }}" }
+    </div>
+  </div>
+  }
 </div>
