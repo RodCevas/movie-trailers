@@ -18,11 +18,12 @@
     <li><a [routerLink]="['/trending']"  routerLinkActive="active">Trending</a></li>  
     <li>
       <div class="dropdown">
-        <button class="dropdown-btn" (click)="toggleDropdown()">Genres ▾</button>
+        <button class="dropdown-btn" (click)="toggleDropdown()" [class.active]="isGenresActive">Genres ▾</button>
         <ul *ngIf="dropdownOpen" class="dropdown-menu">
-          <li><a routerLink="/#" routerLinkActive="active">Adventure</a></li>
-          <li><a routerLink="/#" routerLinkActive="active">Drama</a></li>
-          <li><a routerLink="/#" routerLinkActive="active">Horror</a></li>
+          <li (click)="closeDropdown()"><a routerLink="/genres/Action">Action</a></li>
+          <li (click)="closeDropdown()"><a routerLink="/genres/Drama">Drama</a></li>
+          <li (click)="closeDropdown()"><a routerLink="/genres/Horror">Horror</a></li>
+          <li (click)="closeDropdown()"><a routerLink="/genres/Science Fiction">Science Fiction</a></li>
         </ul>
       </div>
     </li>  

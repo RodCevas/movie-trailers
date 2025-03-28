@@ -4,12 +4,14 @@ import { DetailComponent } from './shared/components/detail/detail.component';
 import { LatestTrailersComponent } from './feature/latest-trailers/latest-trailers.component';
 import { TrendingTrailersComponent } from './feature/trending-trailers/trending-trailers.component';
 import { PageNotFoundComponent } from './feature/page-not-found/page-not-found.component';
+import { GenresComponent } from './feature/genres/genres.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'latest', component: LatestTrailersComponent },
   { path: 'trending', component: TrendingTrailersComponent },
+  { path: 'genres/:id', component: GenresComponent },
   {
     path: 'detail/:id',
     component: DetailComponent,
