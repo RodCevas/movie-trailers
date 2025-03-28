@@ -10,10 +10,11 @@ import { DataService } from '../../../core/services/data.service';
 import { Movie } from '../../../core/models/models';
 import { CardComponent } from '../card/card.component';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule, FormsModule, CardComponent],
+  imports: [CommonModule, FormsModule, CardComponent, RouterLink],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
