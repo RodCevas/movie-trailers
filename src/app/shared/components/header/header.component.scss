@@ -1,5 +1,4 @@
 @use "../../../css/01-utilities/variables" as *;
-@use "../../../css/01-utilities/variables" as *;
 
 .navbar {
   display: flex;
@@ -10,7 +9,6 @@
   .logo-img {
     max-height: 60px;
   }
-  padding: 15px 20px;
 
   .nav-links {
     list-style: none;
@@ -21,13 +19,10 @@
       a {
         text-decoration: none;
         color: map-get($clr, "light");
-        color: map-get($clr, "light");
         transition: 0.3s;
         cursor: pointer;
         &:hover,
         &.active {
-          color: map-get($clr-dark-theme, "warning");
-        &:hover {
           color: map-get($clr-dark-theme, "warning");
         }
       }
@@ -42,6 +37,37 @@
     cursor: pointer;
     svg path {
       fill: map-get($clr, "light");
+    }
+  }
+
+  .search-container {
+    display: flex;
+    position: relative;
+    align-items: center;
+    background-color: map-get($clr, "dark");
+    padding: 2px;
+    border-radius: 8px;
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: 1rem;
+    .search-input {
+      flex-grow: 1;
+      padding: 8px;
+      border: none;
+      background: none;
+      color: map-get($clr, "light");
+      outline: none;
+    }
+    .clear-button {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      color: map-get($clr, "light");
     }
   }
 
@@ -81,38 +107,6 @@
           }
         }
       }
-      fill: map-get($clr, "light");
-    }
-  }
-
-  .search-container {
-    display: flex;
-    position: relative;
-    align-items: center;
-    background-color: map-get($clr, "dark");
-    padding: 2px;
-    border-radius: 8px;
-    max-width: 250px;
-    margin-left: auto;
-    margin-right: 1rem;
-    .search-input {
-      flex-grow: 1;
-      padding: 8px;
-      border: none;
-      background: none;
-      color: map-get($clr, "light");
-      outline: none;
-    }
-    .clear-button {
-      position: absolute;
-      right: 8px;
-      top: 50%;
-      transform: translateY(-50%);
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 18px;
-      color: map-get($clr, "light");
     }
   }
 
@@ -122,7 +116,6 @@
       flex-direction: column;
       width: 100%;
       text-align: center;
-      background-color: map-get($clr-dark-theme, "secondary");
       background-color: map-get($clr, "dark");
       position: absolute;
       top: 55px;

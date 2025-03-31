@@ -8,11 +8,9 @@ import {
 } from '@angular/core';
 import { Movie } from '../../core/models/models';
 import { DataService } from '../../core/services/data.service';
-import { PaginationComponent } from "../../shared/components/pagination/pagination.component";
-import { CardComponent } from "../../shared/components/card/card.component";
-import { ActivatedRoute, Router } from '@angular/router';
 import { PaginationComponent } from '../../shared/components/pagination/pagination.component';
 import { CardComponent } from '../../shared/components/card/card.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-trending-trailers',
@@ -37,7 +35,11 @@ export class TrendingTrailersComponent implements OnInit {
     );
   });
 
-  constructor(private dataService: DataService) {
+  constructor(
+    private dataService: DataService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
     effect(() => {
       if (this.currentPage()) {
         this.getMovies();
@@ -46,6 +48,7 @@ export class TrendingTrailersComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.setCurrentPage();
     this.getMovies();
   }
 
@@ -55,55 +58,9 @@ export class TrendingTrailersComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.moviesTrending.set(Object.values(data));
-          /*           let metadata = Object.values(data).length - 1;
-    moviesTrending = signal<Movie[]>([]);
-    error = signal<string>('');
-  
-    currentPage = signal<number>(1);
-    totalMovies = signal<number>(100);
-    limitPages = signal<number>(20);
-  
-    slicedMovies = computed(() => {
-      return this.sliceMovies(
-        this.currentPage(),
-        this.limitPages(),
-        this.moviesTrending()
-      );
-    });
-  
-    constructor(
-      private dataService: DataService,
-      private router: Router,
-      private route: ActivatedRoute
-    ) {
-      effect(() => {
-        if (this.currentPage()) {
-          this.getMovies();
-        }
-      });
-    }
-  
-    ngOnInit() {
-      this.setCurrentPage();
-      this.getMovies();
-    }
-  
-    getMovies() {
-      this.dataService
-        .getAll('/trending', `&limit=${this.totalMovies()}`)
-        .subscribe({
-          next: (data) => {
-            this.moviesTrending.set(Object.values(data));
-            /*           let metadata = Object.values(data).length - 1;
-            this.totalMovies.set(Object.values(data)[metadata].total_count);   */
         },
         error: (err) => (this.error = err),
       });
-  }
-
-  changePage($event: number) {
-    this.currentPage.set($event);
-    window.scrollTo(0, 0);
   }
 
   sliceMovies(currentPage: number, limitPages: number, movies: Movie[]) {
@@ -111,34 +68,23 @@ export class TrendingTrailersComponent implements OnInit {
     let trimEnd = trimStart + limitPages;
     return movies.slice(trimStart, trimEnd);
   }
-            console.log(this.moviesTrending());
-          },
-          error: (err) => (this.error = err),
-        });
-    }
 
-    sliceMovies(currentPage: number, limitPages: number, movies: Movie[]) {
-      let trimStart = (currentPage - 1) * limitPages;
-      let trimEnd = trimStart + limitPages;
-      return movies.slice(trimStart, trimEnd);
-    }
+  changePage($event: number) {
+    this.setCurrentPage();
+    this.setPaginationParam($event);
+    window.scrollTo(0, 0);
+  }
 
-    changePage($event: number) {
-      this.setCurrentPage();
-      this.setPaginationParam($event);    
-      window.scrollTo(0, 0);
-    }
-  
-    setPaginationParam(page: number) {
-      this.router.navigate(['/home'], {
-        queryParams: { page: page },
-        queryParamsHandling: 'merge',
-      });
-    }
-  
-    setCurrentPage() {
-      this.route.queryParams.subscribe((params) => {    
-        this.currentPage.set(Number(params['page'] ? +params['page'] : 1));
-      });
-    }
+  setPaginationParam(page: number) {
+    this.router.navigate(['/trending'], {
+      queryParams: { page: page },
+      queryParamsHandling: 'merge',
+    });
+  }
+
+  setCurrentPage() {
+    this.route.queryParams.subscribe((params) => {
+      this.currentPage.set(Number(params['page'] ? +params['page'] : 1));
+    });
+  }
 }

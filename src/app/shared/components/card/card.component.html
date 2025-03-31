@@ -1,7 +1,7 @@
 @if (movie.title) {
 <a
   [routerLink]="['/detail', movie.id]"
-  [queryParams]="{ id: movie.id, youtube_video_id: movie.youtube_video_id, youtube_thumbnail: movie.youtube_thumbnail, title: movie.title, language: movie.language, published: movie.published, views: movie.views }"
+  [queryParams]="{ id: movie.id, youtube_video_id: movie.youtube_video_id, youtube_thumbnail: movie.youtube_thumbnail, title: movie.title, language: movie.language, published: movie.published, views: movie.views, genres: movie.genres}"
 >
   <div class="card">
     <img [src]="movie.thumbnail" alt="movie poster" />

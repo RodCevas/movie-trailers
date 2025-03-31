@@ -12,19 +12,24 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class DetailComponent {
   queryParams: any = {};
+  queryParamsGenres: string[] = [];
   safeUrl: SafeResourceUrl = '';
 
   private sanitizer = inject(DomSanitizer);
   private route = inject(ActivatedRoute);
 
   ngOnInit() {
-    this.queryParams = this.route.snapshot.queryParams;
+    this.route.queryParamMap.subscribe(params => {
+      this.queryParams = params;
+      this.queryParamsGenres = params.getAll('genres');
+      console.log(this.queryParams.params);
+    });
     this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
       'https://www.youtube.com/embed/' +
-        this.queryParams.youtube_video_id +
+        this.queryParams.params.youtube_video_id +
         '?controls=1&autoplay=0&playlist=' +
-        this.queryParams.youtube_video_id +
+        this.queryParams.params.youtube_video_id +
         '&loop=0&disablekb=1&iv_load_policy=3&rel=0'
-    );    
+    ); 
   }
 }

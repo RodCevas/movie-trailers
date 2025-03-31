@@ -3,14 +3,19 @@
     <a onclick="history.back()" class="go-back-btn">Go Back</a>
   </div>
   <div class="flex-col-lg-4 p-2">
-    <img src="{{ queryParams.youtube_thumbnail }}" alt="movie poster" />
+    <img src="{{ queryParams.params.youtube_thumbnail }}" alt="movie poster" />
   </div>
   <div class="flex-col-lg-8 p-2">
-    <h3 class="text-light mb-3 py-2 text-center">{{ queryParams.title }}</h3>
-    <p>Published: {{ queryParams.published | date }}</p>
-    <p>Language: {{ queryParams.language }}</p>
+    <h3 class="text-light mb-3 py-2 text-center">{{ queryParams.params.title }}</h3>
+    <p>Published: {{ queryParams.params.published | date }}</p>
+    <p>Language: {{ queryParams.params.language }}</p>
     <p>Genres:</p>
-    <p>Views: {{ queryParams.views }}</p>
+    <ul class="ml-5">
+      @for(genre of queryParamsGenres; track $index) {
+        <li>{{ genre }}</li>
+        }
+    </ul>
+    <p>Views: {{ queryParams.params.views }}</p>
   </div>
 </div>
 <div class="flex-row">

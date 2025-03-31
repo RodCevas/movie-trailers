@@ -1,7 +1,11 @@
 <div class="flex-row">
   <div class="col-12 video-container">
     <div class="screen">
-      <iframe class="responsive-iframe" [src]="safeUrl" frameborder="0"></iframe>
+      <iframe
+        class="responsive-iframe"
+        [src]="safeUrl"
+        frameborder="0"
+      ></iframe>
     </div>
     <div class="content">
       <img src="{{ movieBanner.youtube_thumbnail }}" alt="banner top" />
@@ -16,7 +20,8 @@
             title: movieBanner.title,
             language: movieBanner.language,
             published: movieBanner.published,
-            views: movieBanner.views
+            views: movieBanner.views,
+            genres: movieBanner.genres
           }"
           class="btn-opacity-secondary text-center"
           >More Info</a

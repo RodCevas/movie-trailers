@@ -59,17 +59,9 @@ export class LatestTrailersComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.moviesLatest.set(Object.values(data));
-          /*           let metadata = Object.values(data).length - 1;
-          this.totalMovies.set(Object.values(data)[metadata].total_count);   */
-          console.log(this.moviesLatest());
         },
         error: (err) => (this.error = err),
       });
-  }
-
-  changePage($event: number) {
-    this.currentPage.set($event);
-    window.scrollTo(0, 0);
   }
 
   sliceMovies(currentPage: number, limitPages: number, movies: Movie[]) {
@@ -85,7 +77,7 @@ export class LatestTrailersComponent implements OnInit {
   }
 
   setPaginationParam(page: number) {
-    this.router.navigate(['/home'], {
+    this.router.navigate(['/latest'], {
       queryParams: { page: page },
       queryParamsHandling: 'merge',
     });
