@@ -102,10 +102,11 @@ export class HeaderComponent implements OnInit {
     if (event) {
       const target = event.target as HTMLElement;
       if (!target.closest('.dropdown')) {
-        this.dropdownOpen = false;
+        this.dropdownOpen = false;               
       }
     } else {
       this.dropdownOpen = false;
+      this.menuOpen = false;
     }
   }
 }

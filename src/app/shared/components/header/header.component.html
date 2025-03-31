@@ -34,11 +34,13 @@
       </svg>
     </button>
     <ul class="nav-links" [class.active]="menuOpen">
-      <li><a [routerLink]="['/home']" routerLinkActive="active">Home</a></li>
-      <li>
+      <li (click)="menuOpen = false">
+        <a [routerLink]="['/home']" routerLinkActive="active">Home</a>
+      </li>
+      <li (click)="menuOpen = false">
         <a [routerLink]="['/latest']" routerLinkActive="active">Latest</a>
       </li>
-      <li>
+      <li (click)="menuOpen = false">
         <a [routerLink]="['/trending']" routerLinkActive="active">Trending</a>
       </li>
       <li>

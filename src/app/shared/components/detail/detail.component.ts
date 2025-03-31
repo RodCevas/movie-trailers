@@ -21,8 +21,7 @@ export class DetailComponent {
   ngOnInit() {
     this.route.queryParamMap.subscribe(params => {
       this.queryParams = params;
-      this.queryParamsGenres = params.getAll('genres');
-      console.log(this.queryParams.params);
+      this.queryParamsGenres = params.getAll('genres');     
     });
     this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
       'https://www.youtube.com/embed/' +
