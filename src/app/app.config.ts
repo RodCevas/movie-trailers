@@ -6,7 +6,9 @@ import {
 } from '@angular/router';
 
 import { routes } from './app.routes';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { errorHandlerInterceptor } from './core/interceptors/error-handler.interceptor';
+
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -17,6 +19,8 @@ export const appConfig: ApplicationConfig = {
         scrollPositionRestoration: 'enabled', // enable position restoration
       })
     ),
-    provideHttpClient(),
+    provideHttpClient(
+      withInterceptors([errorHandlerInterceptor])
+    ),
   ],
 };
