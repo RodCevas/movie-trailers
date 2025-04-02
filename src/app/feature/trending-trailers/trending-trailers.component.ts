@@ -21,7 +21,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class TrendingTrailersComponent implements OnInit {
   moviesTrending = signal<Movie[]>([]);
-  error = signal<string>('');
 
   currentPage = signal<number>(1);
   totalMovies = signal<number>(100);
@@ -59,7 +58,6 @@ export class TrendingTrailersComponent implements OnInit {
         next: (data) => {
           this.moviesTrending.set(Object.values(data));
         },
-        error: (err) => (this.error = err),
       });
   }
 

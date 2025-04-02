@@ -1,10 +1,12 @@
-<div class="title my-5 mx-2">
-  <h3>{{ genresTitle() }}</h3>  
-</div>
-<div class="card-grid pb-5">
-  @for (movie of filteredMoviesGenres(); track $index) {
-  <app-card [movie]="movie" />
-  } @empty {
-  <p>There are no items.</p>
-  }
+<div class="flex-container py-5">
+  <div class="title mb-5 mx-2">
+    <h3>{{ genresTitle() }}</h3>
+  </div>
+  <div class="card-grid pb-5">
+    @for (movie of filteredMoviesGenres(); track $index) {
+    <app-card [movie]="movie" />
+    } @empty {
+    <p>There are no items.</p>
+    }
+  </div>
 </div>

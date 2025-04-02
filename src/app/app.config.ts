@@ -1,17 +1,19 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import {
-  provideRouter,
-  withInMemoryScrolling,
-  withRouterConfig,
-} from '@angular/router';
-
+  ApplicationConfig,
+  provideZoneChangeDetection,
+} from '@angular/core';
+import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { routes } from './app.routes';
-import { provideHttpClient, withInterceptors } from '@angular/common/http';
-import { errorHandlerInterceptor } from './core/interceptors/error-handler.interceptor';
+import {
+  HTTP_INTERCEPTORS,
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { providePrimeNG } from 'primeng/config';
-import Aura from '@primeng/themes/aura';
-
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { HttpRequestInterceptor } from './core/interceptors/httpRequest.interceptor';
+import { provideToastr } from 'ngx-toastr';
+import { provideSpinnerConfig } from 'ngx-spinner';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -22,14 +24,18 @@ export const appConfig: ApplicationConfig = {
         scrollPositionRestoration: 'enabled', // enable position restoration
       })
     ),
-    provideHttpClient(
-      withInterceptors([errorHandlerInterceptor])
-    ),
+    provideHttpClient(withInterceptorsFromDi()),
+    { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true },
     provideAnimationsAsync(),
-    providePrimeNG({
-        theme: {
-            preset: Aura
-        }
+    provideAnimations(),
+    provideToastr({
+      timeOut: 5000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+      progressBar: true,
+    }),
+    provideSpinnerConfig({
+      type: 'line-scale-party',
     })
   ],
 };

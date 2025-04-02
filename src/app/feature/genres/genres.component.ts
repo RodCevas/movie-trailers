@@ -19,15 +19,16 @@ import { NavigationEnd, Router } from '@angular/router';
 export class GenresComponent {
   moviesGenres = signal<Movie[]>([]);
   genresTitle = signal<string | undefined>('');
-  error = signal<string>('');
 
   filteredMoviesGenres = computed(() => {
-    return this.moviesGenres().filter(movie => movie.genres?.some(genre => {
-      const genreString = genre?.toString().toLowerCase() || '';
-      const titleString = (this.genresTitle() || '').toString().toLowerCase();
-      return genreString === titleString;
-    }));
-  })
+    return this.moviesGenres().filter((movie) =>
+      movie.genres?.some((genre) => {
+        const genreString = genre?.toString().toLowerCase() || '';
+        const titleString = (this.genresTitle() || '').toString().toLowerCase();
+        return genreString === titleString;
+      })
+    );
+  });
 
   constructor(private dataService: DataService, private router: Router) {
     router.events.subscribe((val) => {
@@ -35,17 +36,16 @@ export class GenresComponent {
         let urlParam = val.url.split('/').pop();
         this.genresTitle.set(urlParam?.replaceAll('%20', ' '));
       }
-    })
+    });
   }
 
   ngOnInit() {
-    this.getMovies();   
+    this.getMovies();
   }
 
   getMovies() {
     this.dataService.getAll('', '&limit=100').subscribe({
       next: (data) => this.moviesGenres.set(Object.values(data)),
-      error: (err) => (this.error = err),
     });
   }
 }

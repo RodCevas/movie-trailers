@@ -1,16 +1,18 @@
-<div class="title my-5 mx-2">
-  <h3>Trending Trailers</h3>  
+<div class="flex-container py-5">
+  <div class="title mb-5 mx-2">
+    <h3>Trending Trailers</h3>
+  </div>
+  <div class="card-grid pb-5">
+    @for (movie of slicedMovies(); track $index) {
+    <app-card [movie]="movie" />
+    } @empty {
+    <p>There are no items.</p>
+    }
+  </div>
+  <app-pagination
+    [currentPage]="currentPage()"
+    [totalMovies]="totalMovies()"
+    [limitPages]="limitPages()"
+    (changePage)="changePage($event)"
+  ></app-pagination>
 </div>
-<div class="card-grid pb-5">
-  @for (movie of slicedMovies(); track $index) {
-  <app-card [movie]="movie" />
-  } @empty {
-  <p>There are no items.</p>
-  }
-</div>
-<app-pagination
-  [currentPage]="currentPage()"
-  [totalMovies]="totalMovies()"
-  [limitPages]="limitPages()"
-  (changePage)="changePage($event)"
-></app-pagination>

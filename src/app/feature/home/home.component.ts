@@ -8,7 +8,7 @@ import { CardComponent } from '../../shared/components/card/card.component';
 import { CommonModule } from '@angular/common';
 import { DataService } from '../../core/services/data.service';
 import { Movie } from '../../core/models/models';
-import { BannerTopComponent } from "../../shared/components/banner-top/banner-top.component";
+import { BannerTopComponent } from '../../shared/components/banner-top/banner-top.component';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -21,7 +21,6 @@ import { RouterLink } from '@angular/router';
 export class HomeComponent implements OnInit {
   moviesTrending = signal<Movie[]>([]);
   moviesLatest = signal<Movie[]>([]);
-  error = signal<string>('');
 
   constructor(private dataService: DataService) {}
 
@@ -32,11 +31,9 @@ export class HomeComponent implements OnInit {
   getMovies() {
     this.dataService.getAll('/latest', '&limit=9').subscribe({
       next: (data) => this.moviesLatest.set(Object.values(data)),
-      error: (err) => (this.error = err),
     });
     this.dataService.getAll('/trending', '&limit=9').subscribe({
       next: (data) => this.moviesTrending.set(Object.values(data)),
-      error: (err) => (this.error = err),
     });
   }
 }
