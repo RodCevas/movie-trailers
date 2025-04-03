@@ -1,23 +1,14 @@
-@forward './01-utilities/placeholders';
-@forward './01-utilities/colors';
-@forward './01-utilities/global';
+@forward "./01-utilities/variables";
+@forward "./01-utilities/colors";
+@forward "./01-utilities/mixins";
+@forward "./01-utilities/functions";
+@forward "./01-utilities/global";
 
+@forward "./03-base/reset";
+@forward "./03-base/typography";
 
+@forward "./04-layout/grid";
 
-@forward './03-base/reset';
-@forward './03-base/typography';
-@forward './03-base/animations';
+@forward "./05-components/buttons";
 
-@forward './04-layout/navigation';
-@forward './04-layout/grid';
-@forward './04-layout/sidebar';
-@forward './04-layout/forms';
-
-@forward './05-components/buttons';
-@forward './05-components/carousel';
-@forward './05-components/cover';
-@forward './05-components/dropdown';
-@forward './05-components/media';
-@forward './05-components/thumbnails';
-
-@forward './07-themes/theme';
+@forward "./07-themes/theme";
