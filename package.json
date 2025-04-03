@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy-ghpages": "npx ngh --dir dist/movie-trailers/browser --no-silent"
   },
   "private": true,
   "dependencies": {
